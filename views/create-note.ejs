@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/users/<%= id %>/info">User Profile</a></li>
+            <li><a href="/users/logout">Login</a></li>
+        </ul>
+    </nav>
+
+    <form action="/notes/create" method="POST">
+        <h1>Add a new note</h1>
+        <div>
+            <input type="text" name="title" placeholder="note title">
+        </div>
+        <div>
+             <textarea name="description" cols="30" rows="10" placeholder="write here"></textarea>
+        </div>
+        <div>
+            <input type="date" name="dueDate">
+        </div>
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+        <button>Add note</button>
+       
+    </form>
+
+</body>
+
+</html>

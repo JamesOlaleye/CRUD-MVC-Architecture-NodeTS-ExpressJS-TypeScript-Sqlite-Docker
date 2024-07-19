@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Note</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/users/<%= id %>/info">User Profile</a></li>
+            <li><a href="/users/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    
+    <form action="/notes/<%= id %>/update-note" method="POST">
+        <h1>Update Note</h1>
+        <div>
+            <input type="text" name="title" placeholder="note title" value="<%= note.title %>">
+        </div>
+        <div>
+            <textarea name="description" cols="30" rows="10" placeholder="write here"><%= note.description %></textarea>
+        </div>
+        <div>
+            <input type="date" name="dueDate" value="<%= note.dueDate %>">
+        </div>
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option value="true" <%=note.status===true ? 'selected' : '' %>>true</option>
+            <option value="false" <%=note.status===false ? 'selected' : '' %>>false</option>
+        </select>
+        <button>Update note</button>
+    </form>
+
+</body>
+
+</html>

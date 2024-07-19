@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user dashboard</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/users/<%= id %>/info">User Profile</a></li>
+            <li><a href="/users/logout">Login</a></li>
+        </ul>
+    </nav>
+    <h1>WELCOME <%= fullname %>
+    </h1>
+    <a href="/notes/create">add a new note</a>
+    <div class="notes">
+        <ul>
+            <% notes.forEach(note=> { %>
+                <a href="/notes/<%= note.id %>/info">
+                    <li>
+                        <p>
+                            <%= note.title %>
+                        </p>
+                        <p>
+                            <%= note.description %>
+                        </p>
+                        <span>
+                            <%= note.dueDate %>
+                        </span>
+
+                        <span>
+                            <%= note.status %>
+                        </span>
+                    </li>
+                </a>
+                <% }) %>
+        </ul>
+    </div>
+</body>
+
+</html>
